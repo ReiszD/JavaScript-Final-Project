@@ -6,6 +6,8 @@
 }
 
 nav {
+    background-color: #b72c2c;
+    color: #fff;
    height: 80px;
    display: flex;
 }
@@ -21,7 +23,7 @@ nav {
 }
 
 .logo {
-    width: 160px;
+    transform: scale(3);
 }
 
 ul {
@@ -39,12 +41,65 @@ li {
     font-size: 20px;
     font-weight: bold;
     text-decoration: none;
+    color: #fff;
+}
+
+header {
+    background-color: #b72c2c;
+    color: #fff;
+    padding: 0 12px;
+    margin: 0 auto;
 }
 
 .header__title {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.input__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input {
+    border-radius: 16px;
+    background-color: #fff;
+    color: #080808;
+    width: 100%;
+    max-width: 1000px;
+    height: 50px;
+}
+
+.input__img {
+    transform: translateX(-88px);
+    background-color: #fff;
+    color: #b72c2c;
+}
+
+.marvel__logo {
+    width: 100%;
+    z-index: -1;
+    opacity: 0.1;
+    transform: translateY(-180px);
+}
+
+.search__results {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.search__info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+select {
+    width: 25%;
+    height: 32px;
 }
 
 .avengers__media {
@@ -55,11 +110,14 @@ li {
 
 .avengers__list {
     width: 50%;
+    max-width: 1280px;
+    display: flex;
+    flex-direction: column;
 }
 
 .avengers__card {
     background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 16px rgba(244, 89, 89, 0.321);
     margin: 10px;
     border-radius: 8px;
 }
