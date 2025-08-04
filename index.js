@@ -14,33 +14,36 @@ async function renderMedia(filter) {
     const avengersData = await avengers.json();
     const avengersListEl = document.querySelector('.avengers__list');
     
-    document.body.classList += ' media__loading--spinner'
-    avengersListEl.innerHTML = avengersData.Search.map((avengers) => avengersHTML(avengers)).join("");
-    document.body.classList.remove('media__loading--spinner')
-    
+    document.body.classList += 'media__loading--spinner'
     
     if (filter === 'OLD_TO_NEW') {
         console.log(filter)
-        avengers.sort((a, b) => a.Year - b.Year)
+        avengersData.Search.sort((a, b) => a.Year - b.Year)
     }
     else if (filter === 'NEW_TO_OLD') {
         console.log(filter)
-        avengers.sort((a, b) => b.Year - a.Year)
+        avengersData.Search.sort((a, b) => b.Year - a.Year)
     }
-    else if (filter === 'TYPE') {
+    else if (filter === 'MOVIES_TO_SERIES') {
         console.log(filter)
-        avengers.sort((a, b) => a.Type - b.Type)
+        avengersData.Search.sort((a, b) => a.Type.localeCompare(b.Type))
+    }
+    else if (filter === 'SERIES_TO_MOVIES') {
+        console.log(filter)
+        avengersData.Search.sort((a, b) => b.Type.localeCompare(a.Type))
     }
     else if (filter === 'TITLE') {
         console.log(filter)
-        avengers.sort((a, b) => a.Title - b.Title)
+        avengersData.Search.sort((a, b) => a.Title.localeCompare(b.Title))
     }
+    
+    avengersListEl.innerHTML = avengersData.Search.map((avengers) => avengersHTML(avengers)).join("");
+    document.body.classList.remove('media__loading--spinner')
 }
 
 function filterMedia(event) {
     renderMedia(event.target.value);
 }
-
 
 function avengersHTML(avengers) {
     return `<div class="avengers__card">

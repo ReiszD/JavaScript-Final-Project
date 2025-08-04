@@ -217,20 +217,18 @@ select {
     border-radius: 16px;
 }
 
-/* .media__loading {
+.media__loading {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 60px;
-    font-size: 60px;
-} */
-
-.media__loading--spinner {
-    display: none !important;
 }
 
 .media__loading--spinner {
-    display: block;
+    visibility: hidden !important;
+}
+
+.media__loading .media__loading--spinner {
+    visibility: visible;
 }
 
 .fa-spinner {
