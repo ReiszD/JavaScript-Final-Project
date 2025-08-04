@@ -1,29 +1,40 @@
   @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 
 * {
-    font-family: "Roboto", sans-serif;
+    padding: 0;
+    margin: 0;
     box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
 }
 
+/* NAV BAR */
+
 nav {
-    background-color: #b72c2c;
-    color: #fff;
+   background-color: #b72c2c;
+   color: #fff;
    height: 80px;
    display: flex;
+   padding: 0 24px;
+   margin: 0 auto;
 }
 
 .nav__container {
     width: 100%;
     max-width: 1200px;
-    padding: 0 24px;
-    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .logo {
-    transform: scale(3);
+    display: flex;
+    align-items: center;
+    transform: scale(2);
+    margin-left: 64px;
+}
+
+.logo__title {
+    margin-left: 8px;
 }
 
 ul {
@@ -33,6 +44,7 @@ ul {
 
 li {
     list-style-type: none;
+    z-index: 1;
 }
 
 .nav__link {
@@ -44,84 +56,247 @@ li {
     color: #fff;
 }
 
+.nav__link:hover {
+    text-decoration: underline;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.nav__link--primary {
+    border-radius: 40px;
+    background-color: #fff;
+    color: #b72c2c;
+    z-index: 1;
+}
+
+.nav__link--primary:hover {
+    background-color: #838282;
+    cursor: pointer;
+}
+
+.btn__menu {
+    background-color: transparent;
+    font-size: 40px;
+    text-align: center;
+    color: #fff;
+    display: none;
+    border: none;
+    z-index: 1;
+}
+
+.fa-film {
+    font-weight: bold;
+    z-index: 2;
+    border: none;
+}
+
+.menu__backdrop {
+    position: absolute;
+    background-color: #242424;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 300ms ease;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.menu--open .menu__backdrop {
+    display: flex;
+    visibility: visible;
+    opacity: 1;
+}
+
+.btn__menu--close {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    color: #fff;
+    padding: 8px;
+}
+
+.fa-xmark {
+    font-weight: bold;
+}
+
+.menu__links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.menu__link {
+    font-size: 40px;
+    color: #fff;
+}
+
+.menu__list {
+    padding: 32px 0;
+}
+
+/* HEADER */
+
+
 header {
     background-color: #b72c2c;
     color: #fff;
-    padding: 0 12px;
-    margin: 0 auto;
 }
 
 .header__title {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 16px 16px;
 }
 
 .input__wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-left: 8px;
 }
 
 input {
     border-radius: 16px;
+    border-color: #fff;
     background-color: #fff;
-    color: #080808;
-    width: 100%;
+    color: #b72c2c;
+    width: 90%;
     max-width: 1000px;
     height: 50px;
+    z-index: 1;
+    cursor: text;
 }
 
 .input__img {
-    transform: translateX(-88px);
+    transform: translateX(-56px) scale(1.5);
     background-color: #fff;
     color: #b72c2c;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.input__img:hover {
+    color: #a36771;
 }
 
 .marvel__logo {
-    width: 100%;
     z-index: -1;
     opacity: 0.1;
-    transform: translateY(-180px);
+    transform: translateY(-100px) scale(2.5) translateX(115px);
+    transition: all 300ms ease;
+}
+
+/* LANDING */
+
+#landing {
+    background-color: #838282;
+}
+
+.avengers {
+    margin: 0 auto;
+    padding: 0 24px;
 }
 
 .search__results {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-.search__info {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-wrap: wrap;
 }
 
 select {
     width: 25%;
     height: 32px;
+    margin-top: 8px;
+    border-radius: 16px;
 }
 
-.avengers__media {
-    width: auto;
+/* .media__loading {
     display: flex;
-    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding-top: 60px;
+    font-size: 60px;
+} */
+
+.media__loading--spinner {
+    display: none !important;
+}
+
+.media__loading--spinner {
+    display: block;
+}
+
+.fa-spinner {
+    animation: rotate 600ms infinite linear;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 .avengers__list {
-    width: 50%;
-    max-width: 1280px;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .avengers__card {
     background-color: #fff;
-    box-shadow: 0 8px 16px rgba(244, 89, 89, 0.321);
-    margin: 10px;
-    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(244, 89, 89, 0.628);
+    margin: 16px;
+    border-radius: 16px;
 }
 
 .avengers__card--container {
     padding: 2px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+footer {
+    background-color: #b72c2c;
+}
+
+.footer__logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: scale(3) translateY(20px);
+}
+
+.marvel__logo--footer {
+    opacity: 0.1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(300px) scaleX(5) scaleY(1);
+    transition: all 300ms ease;
+}
+
+@media (max-width: 550px) {
+    .nav__links {
+        display: none;
+    }
+    .btn__menu {
+        display: block;
+    }
+    .marvel__logo {
+        transform: translateY(-100px) scale(1.8) translateX(50px);
+    }
+    .marvel__logo--footer {
+        transform: translateX(100px) scaleX(1.8) scaleY(1);
+    }
 }
