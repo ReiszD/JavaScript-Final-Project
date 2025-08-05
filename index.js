@@ -9,51 +9,70 @@ function closeMenu() {
     document.body.classList.remove('menu--open')
 }
 
+async function onSearchChange(event){
+    const Title = event.target.value;
+    const media = await fetch(`https://www.omdbapi.com/?apikey=253f9b44&s=${Title}`);
+    const mediaData = await media.json();
+    const mediaListEl = document.querySelector('.avengers__list');
+
+    mediaListEl.innerHTML = mediaData.Search.map((media) => mediaHTML(media)).join("");
+    `<div class="avengers__card">
+    <div class="avengers__card--container">
+    <h2>${media.Title}</h2>
+    <p><b>Type:</b> ${media.Type}</p>
+    <p><b>Year:</b> ${media.Year}</p>
+    <img src="${media.Poster}">
+    </div>
+    </div>`
+}
+
 async function renderMedia(filter) {
-    const avengers = await fetch("https://www.omdbapi.com/?apikey=253f9b44&s=avengers");
-    const avengersData = await avengers.json();
-    const avengersListEl = document.querySelector('.avengers__list');
+    const Title = localStorage.getItem("Title")
+    const media = await fetch(`https://www.omdbapi.com/?apikey=253f9b44&s=${Title}`);
+    const mediaData = await media.json();
+    const mediaListEl = document.querySelector('.avengers__list');
     
-    document.body.classList += 'media__loading--spinner'
+    mediaListEl.classList += ' media__loading'
+    mediaListEl.classList.remove('media__loading')
     
     if (filter === 'OLD_TO_NEW') {
         console.log(filter)
-        avengersData.Search.sort((a, b) => a.Year - b.Year)
+        mediaData.Search.sort((a, b) => a.Year - b.Year)
     }
     else if (filter === 'NEW_TO_OLD') {
         console.log(filter)
-        avengersData.Search.sort((a, b) => b.Year - a.Year)
+        mediaData.Search.sort((a, b) => b.Year - a.Year)
     }
     else if (filter === 'MOVIES_TO_SERIES') {
         console.log(filter)
-        avengersData.Search.sort((a, b) => a.Type.localeCompare(b.Type))
+        mediaData.Search.sort((a, b) => a.Type.localeCompare(b.Type))
     }
     else if (filter === 'SERIES_TO_MOVIES') {
         console.log(filter)
-        avengersData.Search.sort((a, b) => b.Type.localeCompare(a.Type))
+        mediaData.Search.sort((a, b) => b.Type.localeCompare(a.Type))
     }
     else if (filter === 'TITLE') {
         console.log(filter)
-        avengersData.Search.sort((a, b) => a.Title.localeCompare(b.Title))
+        mediaData.Search.sort((a, b) => a.Title.localeCompare(b.Title))
     }
     
-    avengersListEl.innerHTML = avengersData.Search.map((avengers) => avengersHTML(avengers)).join("");
-    document.body.classList.remove('media__loading--spinner')
+    mediaListEl.innerHTML = mediaData.Search.map((media) => mediaHTML(media)).join("");
 }
+
 
 function filterMedia(event) {
     renderMedia(event.target.value);
 }
 
-function avengersHTML(avengers) {
+function mediaHTML(media) {
     return `<div class="avengers__card">
     <div class="avengers__card--container">
-    <h2>${avengers.Title}</h2>
-    <p><b>Type:</b> ${avengers.Type}</p>
-    <p><b>Year:</b> ${avengers.Year}</p>
-    <img src="${avengers.Poster}">
+    <h2>${media.Title}</h2>
+    <p><b>Type:</b> ${media.Type}</p>
+    <p><b>Year:</b> ${media.Year}</p>
+    <img src="${media.Poster}">
     </div>
     </div>`
-          }
+}
     
 renderMedia();

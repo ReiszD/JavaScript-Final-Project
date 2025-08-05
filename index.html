@@ -54,7 +54,7 @@
                         <h1>Browse Our Collection</h1>
                     </div>
                     <div class="input__wrapper">
-                        <input type="search" placeholder="Search Here">
+                        <input type="search" placeholder="Search Here" onchange="onSearchChange(event)">
                         <figure class="input__img">
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </figure>
@@ -78,7 +78,7 @@
                                 <option value="TITLE">Alphabetically</option>
                             </select>
                         </div>
-                        <div class="media__loading">
+                        <div class="media media__loading">
                             <i class="fas fa-spinner media__loading--spinner"></i>
                             <div class="avengers__list">
                                 <div class="avengers__card">

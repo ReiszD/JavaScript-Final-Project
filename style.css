@@ -198,12 +198,9 @@ input {
     background-color: #838282;
 }
 
-.avengers {
+.search__results {
     margin: 0 auto;
     padding: 0 24px;
-}
-
-.search__results {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -224,11 +221,11 @@ select {
 }
 
 .media__loading--spinner {
-    visibility: hidden !important;
+    display: none !important;
 }
 
 .media__loading .media__loading--spinner {
-    visibility: visible;
+    display: block !important;
 }
 
 .fa-spinner {
