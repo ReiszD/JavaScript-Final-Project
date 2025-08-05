@@ -10,7 +10,7 @@
 /* NAV BAR */
 
 nav {
-   background-color: #b72c2c;
+   background-color: #242424;
    color: #fff;
    height: 80px;
    display: flex;
@@ -65,7 +65,7 @@ li {
 .nav__link--primary {
     border-radius: 40px;
     background-color: #fff;
-    color: #b72c2c;
+    color: #242424;
     z-index: 1;
 }
 
@@ -143,7 +143,7 @@ li {
 
 
 header {
-    background-color: #b72c2c;
+    background-color: #242424;
     color: #fff;
 }
 
@@ -165,7 +165,7 @@ input {
     border-radius: 16px;
     border-color: #fff;
     background-color: #fff;
-    color: #b72c2c;
+    color: #242424;
     width: 90%;
     max-width: 1000px;
     height: 50px;
@@ -176,20 +176,21 @@ input {
 .input__img {
     transform: translateX(-56px) scale(1.5);
     background-color: #fff;
-    color: #b72c2c;
+    color: #242424;
     cursor: pointer;
     z-index: 1;
 }
 
 .input__img:hover {
-    color: #a36771;
+    color: #514e6c;
 }
 
 .marvel__logo {
     z-index: -1;
     opacity: 0.1;
-    transform: translateY(-100px) scale(2.5) translateX(115px);
+    transform: scaleX(5) translateY(-100px) translateX(80px) scaleY(2);
     transition: all 300ms ease;
+    filter: invert();
 }
 
 /* LANDING */
@@ -249,7 +250,7 @@ select {
 
 .avengers__card {
     background-color: #fff;
-    box-shadow: 0 8px 16px rgba(244, 89, 89, 0.628);
+    box-shadow: 0 8px 16px rgba(19, 16, 16, 0.628);
     margin: 16px;
     border-radius: 16px;
 }
@@ -261,8 +262,10 @@ select {
     align-items: center;
 }
 
+/* FOOTER */
+
 footer {
-    background-color: #b72c2c;
+    background-color: #242424;
 }
 
 .footer__logo {
@@ -270,6 +273,7 @@ footer {
     justify-content: center;
     align-items: center;
     transform: scale(3) translateY(20px);
+    color: #fff;
 }
 
 .marvel__logo--footer {
@@ -277,7 +281,8 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    transform: translateX(300px) scaleX(5) scaleY(1);
+    filter: invert();
+    transform: scaleX(5) translateY(-10px) translateX(80px) scaleY(1.1);
     transition: all 300ms ease;
 }
 
