@@ -54,6 +54,9 @@ function renderMedia(filter = "") {
     const mediaListEl = document.querySelector(".avengers__list");
 
     mediaListEl.innerHTML = filtered.map((media) => mediaHTML(media)).join("")
+
+    mediaListEl.classList += ' media__loading'
+    mediaListEl.classList.remove('media__loading')
 }
 
 function mediaHTML(media) {

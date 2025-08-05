@@ -221,12 +221,12 @@ select {
     justify-content: center;
 }
 
-.media__loading--spinner {
-    display: none !important;
+.avengers__card .media__loading--spinner {
+    display: none;
 }
 
-.media__loading .media__loading--spinner {
-    display: block !important;
+.avengers__card .media__loading--spinner {
+    display: block;
 }
 
 .fa-spinner {
@@ -272,7 +272,7 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    transform: scale(3) translateY(20px);
+    transform: scale(3) translateY(30px);
     color: #fff;
 }
 
@@ -294,9 +294,9 @@ footer {
         display: block;
     }
     .marvel__logo {
-        transform: translateY(-100px) scale(1.8) translateX(50px);
+        transform: scaleX(3) translateY(-100px) translateX(50px) scaleY(2);
     }
     .marvel__logo--footer {
-        transform: translateX(100px) scaleX(1.8) scaleY(1);
+        transform: scaleX(3) translateY(-10px) translateX(50px) scaleY(1.1);
     }
 }
